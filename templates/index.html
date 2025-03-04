@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Chat Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        #loginSection, #chatSection {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #chatList {
+            width: 250px;
+            float: left;
+            background-color: #f9f9f9;
+            border-right: 1px solid #ddd;
+            height: 500px;
+            overflow-y: auto;
+        }
+        .chat-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+        .chat-item:hover {
+            background-color: #f0f0f0;
+        }
+        #chatContainer {
+            margin-left: 260px;
+        }
+        #chatMessages {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .message.sent {
+            background-color: #e6f2ff;
+            text-align: right;
+        }
+        .message.received {
+            background-color: #f0f0f0;
+        }
+        #errorMessage {
+            color: red;
+            display: none;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginSection">
+        <h1>Login to Chat</h1>
+        <input type="text" id="usernameInput" placeholder="Enter your username">
+        <button onclick="connectUser()">Connect</button>
+    </div>
+
+    <div id="chatSection" style="display: none;">
+        <div id="errorMessage"></div>
+        
+        <div id="chatList">
+            <!-- Chat list will be dynamically populated -->
+        </div>
+
+        <div id="chatContainer">
+            <div id="chatHeader"></div>
+            <div id="chatMessages"></div>
+            
+            <div id="newChatSection">
+                <input type="text" id="newChatParticipant" placeholder="Enter username to start a new chat">
+                <button onclick="chatApp.createNewChat()">Create Chat</button>
+            </div>
+
+            <div id="messagingSection" style="display: none;">
+                <input type="text" id="messageInput" placeholder="Type your message">
+                <button onclick="chatApp.sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
