@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Advanced Chat Application</title>
+    <title>Secure Chat Application</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,6 +16,13 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #loginContainer {
+            display: flex;
+            flex-direction: column;
+        }
+        #loginContainer button {
+            margin: 10px 0;
         }
         #chatList {
             width: 250px;
@@ -69,34 +76,33 @@
 </head>
 <body>
     <div id="loginSection">
-        <h1>Login to Chat</h1>
-        <input type="text" id="usernameInput" placeholder="Enter your username">
-        <button onclick="connectUser()">Connect</button>
+        <h1>Secure Chat</h1>
+        <div id="loginContainer">
+            <input type="text" id="usernameInput" placeholder="Username">
+            <input type="password" id="passwordInput" placeholder="Password">
+            <button onclick="loginUser()">Login</button>
+            <button onclick="registerUser()">Register</button>
+        </div>
     </div>
-
     <div id="chatSection" style="display: none;">
+        <button onclick="logout()" style="width: auto; float: right;">Logout</button>
         <div id="errorMessage"></div>
-        
         <div id="chatList">
             <!-- Chat list will be dynamically populated -->
         </div>
-
         <div id="chatContainer">
             <div id="chatHeader"></div>
             <div id="chatMessages"></div>
-            
             <div id="newChatSection">
                 <input type="text" id="newChatParticipant" placeholder="Enter username to start a new chat">
                 <button onclick="chatApp.createNewChat()">Create Chat</button>
             </div>
-
             <div id="messagingSection" style="display: none;">
                 <input type="text" id="messageInput" placeholder="Type your message">
                 <button onclick="chatApp.sendMessage()">Send</button>
             </div>
         </div>
     </div>
-
     <script src="/static/script.js"></script>
 </body>
 </html>
